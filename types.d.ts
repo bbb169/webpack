@@ -4333,7 +4333,8 @@ declare abstract class ExportsInfo {
 	getUsed(name: string | string[], runtime: RuntimeSpec): UsageStateType;
 	getUsedName(
 		name: undefined | string | string[],
-		runtime: RuntimeSpec
+		runtime: RuntimeSpec,
+		isGlobalUsedExports?: boolean
 	): string | false | string[];
 	updateHash(hash: Hash, runtime: RuntimeSpec): void;
 	getRestoreProvidedData(): any;
@@ -8287,7 +8288,7 @@ type ModuleFilterItemTypes =
 			type: "module" | "chunk" | "root-of-chunk" | "nested"
 	  ) => boolean);
 declare class ModuleGraph {
-	constructor(options?: any);
+	constructor();
 	setParents(
 		dependency: Dependency,
 		block: DependenciesBlock,
